@@ -69,5 +69,13 @@ contract Escrow {
         require(msg.value >= escrowAmount[_nftID]);
     }
 
+    // Update Inspection Status (only inspector)
+    function updateInspectionStatus(uint256 _nftID, bool _passed)
+        public
+        onlyInspector
+    {
+        inspectionPassed[_nftID] = _passed;
+    }
+
 
 }
